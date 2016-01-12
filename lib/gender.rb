@@ -10,8 +10,14 @@ module Gender
   end
 
   class Female
+    def to_s
+      'Female'
+    end
   end
 
   class Male
+    def to_s
+      'Male'
+    end
   end
 end
