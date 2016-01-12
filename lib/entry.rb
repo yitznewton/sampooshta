@@ -43,7 +43,7 @@ class Entry
     def initialize(string)
       @string = string
     end
-    
+
     def last_name;       segments[0]; end
     def first_name;      segments[1]; end
     def middle_initial;  segments[2]; end
