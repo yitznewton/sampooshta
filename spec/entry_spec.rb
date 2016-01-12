@@ -59,4 +59,31 @@ describe Entry do
       end
     end
   end
+
+  context 'with space-delimited data' do
+    context 'with female' do
+      let(:line) { 'Hingis Martina M F 4-2-1979 Green' }
+
+      its(:last_name) { is_expected.to eq 'Hingis' }
+      its(:first_name) { is_expected.to eq 'Martina' }
+      its(:middle_initial) { is_expected.to eq 'M' }
+      its(:gender) { is_expected.to be_a Gender::Female }
+      its(:favorite_color) { is_expected.to eq 'Green' }
+      its(:birth_date) { is_expected.to eq Date.parse('1979-04-02') }
+    end
+
+    context 'with male' do
+      let(:line) { 'Seles Morris H M 12-2-1973 Black' }
+
+      its(:gender) { is_expected.to be_a Gender::Male }
+    end
+
+    context 'with unknown gender' do
+      let(:line) { 'Seles Morris H Q 12-2-1973 Black' }
+
+      it 'raises an error' do
+        expect { subject.gender }.to raise_error(ArgumentError)
+      end
+    end
+  end
 end
