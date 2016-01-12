@@ -17,17 +17,10 @@ class Entry
       @string = string
     end
 
-    def last_name
-      segments[0]
-    end
-
-    def first_name
-      segments[1]
-    end
-
-    def middle_initial
-      ''
-    end
+    def last_name;       segments[0]; end
+    def first_name;      segments[1]; end
+    def middle_initial;  ''; end
+    def favorite_color;  segments[3]; end
 
     def gender
       Gender.from_string(segments[2])
@@ -35,10 +28,6 @@ class Entry
 
     def birth_date
       Date.strptime(segments[4], '%m/%d/%Y')
-    end
-
-    def favorite_color
-      segments[3]
     end
 
     private
@@ -55,24 +44,13 @@ class Entry
       @string = string
     end
     
-    def last_name
-      segments[0]
-    end
-
-    def first_name
-      segments[1]
-    end
-
-    def middle_initial
-      segments[2]
-    end
+    def last_name;       segments[0]; end
+    def first_name;      segments[1]; end
+    def middle_initial;  segments[2]; end
+    def favorite_color;  segments[4]; end
 
     def gender
       Gender.from_string(segments[3])
-    end
-
-    def favorite_color
-      segments[4]
     end
 
     def birth_date
@@ -93,24 +71,13 @@ class Entry
       @string = string
     end
 
-    def last_name
-      segments[0]
-    end
-
-    def first_name
-      segments[1]
-    end
-
-    def middle_initial
-      segments[2]
-    end
+    def last_name;       segments[0]; end
+    def first_name;      segments[1]; end
+    def middle_initial;  segments[2]; end
+    def favorite_color;  segments[5]; end
 
     def gender
       Gender.from_string(segments[3])
-    end
-
-    def favorite_color
-      segments[5]
     end
 
     def birth_date
