@@ -1,4 +1,5 @@
 require 'date'
+require_relative 'gender'
 
 class Entry
   def self.from_string(string)
