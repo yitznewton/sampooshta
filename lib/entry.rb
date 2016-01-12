@@ -1,9 +1,6 @@
 require 'date'
 
 class Entry
-  GENDER_MALE = 0
-  GENDER_FEMALE = 1
-
   def self.from_string(string)
     if string.include?(',')
       CommaDelimited.new(string)
@@ -30,13 +27,7 @@ class Entry
     end
 
     def gender
-      case segments[2]
-      when 'Male'
-        GENDER_MALE
-      when 'Female'
-        GENDER_FEMALE
-      else fail ArgumentError
-      end
+      Gender.from_string(segments[2])
     end
 
     def birth_date
@@ -74,13 +65,7 @@ class Entry
     end
 
     def gender
-      case segments[3]
-      when 'F'
-        GENDER_FEMALE
-      when 'M'
-        GENDER_MALE
-      else fail ArgumentError
-      end
+      Gender.from_string(segments[3])
     end
 
     def favorite_color
